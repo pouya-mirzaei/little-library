@@ -3,13 +3,13 @@ import java.io.IOException;
 public class Menu {
     Typewriter tw = App.tw;
 
-    public void displayMenu(String[] menuItems, String message){
+    public void displayMenu(String[] menuItems, String message) {
         clearScreen();
         tw.type(message);
         int counter = 1;
 
-        for (String item : menuItems){
-            tw.type(" "+ counter+ ". " + item);
+        for (String item : menuItems) {
+            tw.type(" " + counter + ". " + item);
             counter++;
         }
 

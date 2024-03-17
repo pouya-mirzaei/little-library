@@ -1,3 +1,3 @@
-del*.class
-javac App.java
-java App.java
+del *.class
+javac Main.java
+java Main.java
