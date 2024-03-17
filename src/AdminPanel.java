@@ -33,6 +33,7 @@ public class AdminPanel {
 
     }
 
+    // library settings
     private void libSettingsMenu() {
 
         String[] menuItems = {"Show all Books", "Add a new book to the library", "Delete a book", "Edit a book", "back"};
@@ -53,16 +54,66 @@ public class AdminPanel {
                 libSettingsMenu();
                 break;
             case 2:
-                // add new book
+                App.library.addNewBook();
+                tw.type("New book added to library list successfully");
+                tw.type("Press any key to continue ...");
+                scanner.next();
+                libSettingsMenu();
                 break;
             case 3:
-                // del a book
+                deleteBook();
                 break;
             case 4:
-                // edit a book
+                tw.type("This section will be implemented in the future");
+                tw.type("Press any key to go back");
+                scanner.nextLine();
+                libSettingsMenu();
                 break;
             case 5:
                 this.start();
+        }
+    }
+
+
+    public void deleteBook() {
+
+
+        tw.type("Enter the title of the book that you want to delete");
+
+        String title = scanner.next();
+        Book book = App.library.findbook(title);
+        if (book == null) {
+            tw.type("There is no book in the this app with the title of " + title);
+            tw.type("Press 0 to try again");
+            tw.type("Press -1 to go back");
+
+            int userInput;
+
+            do {
+                userInput = App.getIntegerInput();
+            } while (userInput != 0 && userInput != -1);
+
+            if (userInput == 0) {
+                Menu.clearScreen();
+                deleteBook();
+            } else {
+                libSettingsMenu();
+            }
+
+        } else {
+            tw.type("Are you sure you want to delete " + book.getTitle() + " ?");
+            scanner.next();
+
+            App.library.books[App.library.getBookIndex(title)] = null;
+
+            App.db.updateUsersDb(App.library.getUsers());
+
+            tw.type("The book called " + book.getTitle() + " deleted any way");
+            tw.type("Press any key to go back ...");
+            scanner.next();
+
+            libSettingsMenu();
+
         }
     }
 

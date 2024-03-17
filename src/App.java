@@ -83,15 +83,16 @@ public class App {
 
     private static void signupMenu() {
         Menu.clearScreen();
+        scanner.nextLine();
         tw.type("Signup Menu Menu");
 
         // name
         tw.type("Tell us your name =>");
-        String name = scanner.next();
+        String name = scanner.nextLine();
 
         // last name
         tw.type("Hey  " + name + "! what is your last name ? =>");
-        String lastName = scanner.next();
+        String lastName = scanner.nextLine();
 
         // username
         tw.type("Create a username for your self =>");

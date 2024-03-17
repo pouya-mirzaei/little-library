@@ -1,6 +1,9 @@
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Library {
+    Typewriter tw = App.tw;
+    Scanner scanner = App.scanner;
     User[] users;
     Book[] books;
 
@@ -46,6 +49,18 @@ public class Library {
         return -1;
     }
 
+    public int getBookIndex(String title) {
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null) {
+                continue;
+            }
+            if (Objects.equals(books[i].getTitle(), title)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
     public User[] getUsers() {
         return users;
@@ -84,4 +99,52 @@ public class Library {
     }
 
 
+    public void addNewBook() {
+        Menu.clearScreen();
+        scanner.nextLine();
+        tw.type("Signup Menu Menu");
+
+        // book
+        tw.type("Enter the title of the book =>");
+        String title = scanner.nextLine();
+
+        // author
+        tw.type("Enter the author of the book =>");
+        String author = scanner.nextLine();
+
+        // pl
+        tw.type("Enter the published year of the book =>");
+        int pl = App.getIntegerInput();
+
+        // price
+        tw.type("Enter the price of the book =>");
+        Double price = (double) App.getIntegerInput();
+
+        // quantity
+        tw.type("Enter the quantity of the book =>");
+        int quantity = App.getIntegerInput();
+
+        Book newBook = new Book(title, author, pl, price, quantity);
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null) {
+                books[i] = newBook;
+                App.db.updateBooksDb(books);
+                return;
+            }
+        }
+
+    }
+
+
+    public Book findbook(String title) {
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null) {
+                continue;
+            }
+            if (Objects.equals(books[i].getTitle(), title)) {
+                return books[i];
+            }
+        }
+        return null;
+    }
 }
