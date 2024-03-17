@@ -5,6 +5,8 @@ public class App {
     public static Scanner scanner;
     public static Typewriter tw;
     public static Library library;
+    public static DataBase db;
+
 
     static Authentication auth;
     static Menu menu;
@@ -12,6 +14,7 @@ public class App {
     public App() {
         scanner = new Scanner(System.in);
         tw = new Typewriter(15);
+        db = new DataBase();
         auth = new Authentication();
         library = new Library();
         menu = new Menu();

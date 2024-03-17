@@ -1,13 +1,17 @@
 import java.util.Objects;
 
 public class Library {
-    User[] users = new User[100];
+    User[] users;
 
     public Library() {
-        User mainAdmin = new User("admin", "mirzaei", "admin", "admin1234", (byte) 19, "male");
-        mainAdmin.setRole("ADMIN");
-        users[0] = mainAdmin;
+        users = App.db.getUsersFromDb();
 
+//        User mainAdmin = new User("admin", "mirzaei", "admin", "admin1234", (byte) 19, "male");
+//        mainAdmin.setRole("ADMIN");
+//        users[0] = mainAdmin;
+
+//        App.db.getUsersFromDb();
+        App.db.updateUsersDb(users);
 
     }
 
@@ -15,6 +19,7 @@ public class Library {
         for (int i = 0; i < users.length; i++) {
             if (users[i] == null) {
                 users[i] = user;
+                App.db.updateUsersDb(users);
                 return;
             }
         }

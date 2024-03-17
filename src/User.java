@@ -13,6 +13,16 @@ public class User {
     private final String gender;
     private Book[] purchasedBooks = new Book[100];
 
+    public User(String id, String name, String lastName, String username, String password, String role, byte age, String gender) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.age = age;
+        this.gender = gender;
+    }
 
     public User(String name, String lastName, String username, String password, byte age, String gender) {
         this.id = UUID.randomUUID().toString();
