@@ -22,23 +22,21 @@ public class Authentication {
                         App.run();
                         return;
 
-                    } else {
-                        Menu.clearScreen();
-                        App.tw.type("The username or password is incorrect");
-                        App.tw.type("To try again press 0");
-                        App.tw.type("To go back to the main menu press -1");
-                        String input = App.scanner.next();
-                        if (Objects.equals(input, "0")) {
-                            App.loginMenu();
-                        } else {
-                            App.run();
-                            return;
-                        }
                     }
                 }
 
-            } else {
-                return;
+            } else if (!Authentication.isUserLoggedIn) {
+                Menu.clearScreen();
+                App.tw.type("The username or password is incorrect");
+                App.tw.type("To try again press 0");
+                App.tw.type("To go back to the main menu press -1");
+                String input = App.scanner.next();
+                if (Objects.equals(input, "0")) {
+                    App.loginMenu();
+                } else {
+                    App.run();
+                    return;
+                }
             }
         }
 
@@ -54,7 +52,7 @@ public class Authentication {
         App.run();
     }
 
-    public void logout() {
+    public static void logout() {
         isUserLoggedIn = false;
         currentUserId = null;
         currenUserData = null;

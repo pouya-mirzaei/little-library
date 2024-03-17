@@ -36,7 +36,7 @@ public class User {
     }
 
     public String getId() {
-        return id;
+        return id.substring(0, 6);
     }
 
     public String getName() {
@@ -96,4 +96,7 @@ public class User {
         return Objects.equals(role, "ADMIN");
     }
 
+    public String getFullName() {
+        return name + " " + lastName;
+    }
 }

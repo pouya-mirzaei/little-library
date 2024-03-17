@@ -13,7 +13,7 @@ public class App {
 
     public App() {
         scanner = new Scanner(System.in);
-        tw = new Typewriter(15);
+        tw = new Typewriter(1);
         db = new DataBase();
         auth = new Authentication();
         library = new Library();
@@ -35,33 +35,13 @@ public class App {
     public static void run() {
         if (auth.isUserLoggedIn) {
             if (auth.currenUserData.isAdmin()) {
-                adminMenu();
+                new AdminPanel().start();
             } else {
-                userMenu();
+                new UserPanel().start();
             }
         } else {
             authenticationMenu();
         }
-
-
-    }
-
-    private static void userMenu() {
-        tw.type("User menu");
-        tw.type("Welcome " + auth.currenUserData.getName() + " " + auth.currenUserData.getLastName());
-        tw.type("This is the normal user panel");
-
-        scanner.next();
-        run();
-    }
-
-    private static void adminMenu() {
-        tw.type("Admin menu");
-        tw.type("Welcome " + auth.currenUserData.getName() + " " + auth.currenUserData.getLastName());
-        tw.type("This is the Admin panel");
-
-        scanner.next();
-        run();
     }
 
     private static void authenticationMenu() {
@@ -82,7 +62,7 @@ public class App {
                 signupMenu();
                 break;
             case 3:
-                break;
+                System.exit(0);
 
         }
     }
@@ -110,7 +90,7 @@ public class App {
         String name = scanner.next();
 
         // last name
-        tw.type("what is your last name ? =>");
+        tw.type("Hey  " + name + "! what is your last name ? =>");
         String lastName = scanner.next();
 
         // username

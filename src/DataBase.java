@@ -35,7 +35,7 @@ public class DataBase {
         try {
             writer = new BufferedWriter(new FileWriter("users.txt"));
             for (User user : users) {
-                if (user == null) break;
+                if (user == null) continue;
 
                 writer.write(user.getId() + " ");
                 writer.write(user.getName() + " ");
@@ -45,6 +45,7 @@ public class DataBase {
                 writer.write(user.getRole() + " ");
                 writer.write(user.getAge() + " ");
                 writer.write(user.getGender() + " \n");
+
 
             }
             writer.close();
