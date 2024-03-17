@@ -43,6 +43,27 @@ public class AdminPanel {
 
             userInput = App.getIntegerInput();
         } while (userInput < 1 || userInput > menuItems.length);
+
+        switch (userInput) {
+            case 1:
+                Menu.clearScreen();
+                App.library.showAllBooks();
+                tw.type("Press Any key to go back");
+                scanner.next();
+                libSettingsMenu();
+                break;
+            case 2:
+                // add new book
+                break;
+            case 3:
+                // del a book
+                break;
+            case 4:
+                // edit a book
+                break;
+            case 5:
+                this.start();
+        }
     }
 
 

@@ -68,7 +68,7 @@ public class DataBase {
                 String[] bookData = line.split(" ");
 
 
-                Book book = new Book(bookData[0], bookData[1], Integer.parseInt(bookData[2]), Double.parseDouble(bookData[3]), Integer.parseInt(bookData[4]));
+                Book book = new Book(bookData[0], bookData[1], bookData[3], Integer.parseInt(bookData[3]), Double.parseDouble(bookData[4]), Integer.parseInt(bookData[5]));
 
                 books[bookCounter] = book;
                 bookCounter++;
