@@ -106,7 +106,7 @@ public class AdminPanel {
 
             App.library.books[App.library.getBookIndex(title)] = null;
 
-            App.db.updateUsersDb(App.library.getUsers());
+            App.db.updateBooksDb(App.library.books);
 
             tw.type("The book called " + book.getTitle() + " deleted any way");
             tw.type("Press any key to go back ...");

@@ -22,7 +22,11 @@ public class DataBase {
             reader.close();
 
         } catch (IOException e) {
-            updateUsersDb(new User[100]);
+            User[] newUsers = new User[1];
+            newUsers[0] = new User("pouya", "mizaei", "admin", "admin", (byte) 19, "male");
+            newUsers[0].setRole("ADMIN");
+
+            updateUsersDb(newUsers);
             return getUsersFromDb();
         }
 

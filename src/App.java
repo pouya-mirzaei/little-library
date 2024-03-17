@@ -88,11 +88,11 @@ public class App {
 
         // name
         tw.type("Tell us your name =>");
-        String name = scanner.nextLine();
+        String name = scanner.next();
 
         // last name
         tw.type("Hey  " + name + "! what is your last name ? =>");
-        String lastName = scanner.nextLine();
+        String lastName = scanner.next();
 
         // username
         tw.type("Create a username for your self =>");

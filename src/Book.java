@@ -19,6 +19,22 @@ public class Book {
         this.quantity = quantity;
     }
 
+    public void decreaseQuantity() {
+        this.quantity -= 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", publishedYear=" + publishedYear +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
+
     public Book(String id, String title, String author, int publishedYear, double price, int quantity) {
         this.id = id;
         this.title = title;

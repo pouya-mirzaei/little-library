@@ -37,6 +37,18 @@ public class Library {
         return null;
     }
 
+    public User findUserById(String id) {
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] == null) {
+                continue;
+            }
+            if (Objects.equals(users[i].getId(), id)) {
+                return users[i];
+            }
+        }
+        return null;
+    }
+
     public int getUserIndex(String username) {
         for (int i = 0; i < users.length; i++) {
             if (users[i] == null) {
@@ -106,11 +118,11 @@ public class Library {
 
         // book
         tw.type("Enter the title of the book =>");
-        String title = scanner.nextLine();
+        String title = scanner.next();
 
         // author
         tw.type("Enter the author of the book =>");
-        String author = scanner.nextLine();
+        String author = scanner.next();
 
         // pl
         tw.type("Enter the published year of the book =>");
@@ -147,4 +159,18 @@ public class Library {
         }
         return null;
     }
+
+
+    public void purchaseBook(String userId, Book book) {
+        User user = findUserById(userId);
+        Book[] userBooks = user.getPurchasedBooks();
+        for (int i = 0; i < userBooks.length; i++) {
+            if (userBooks[i] == null) {
+                userBooks[i] = book;
+                App.db.updateBooksDb(App.library.books);
+                return;
+            }
+        }
+    }
+
 }
