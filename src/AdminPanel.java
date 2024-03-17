@@ -45,6 +45,8 @@ public class AdminPanel {
         } while (userInput < 1 || userInput > menuItems.length);
     }
 
+
+    // users settings section
     private void usersSettingsMenu() {
 
         String[] menuItems = {"Show all users", "Delete a user", "Upgrade a user", "back"};
