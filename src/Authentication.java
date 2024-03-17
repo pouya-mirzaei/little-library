@@ -16,7 +16,7 @@ public class Authentication {
                         isUserLoggedIn = true;
                         currentUserId = user.getId();
                         currenUserData = user;
-                        App.tw.type("You logged in to your account successfully !");
+                        App.tw.type("You logged into your account successfully !");
                         App.tw.type("Press any key to continue ...");
                         App.scanner.next();
                         App.run();

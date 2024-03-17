@@ -1,5 +1,3 @@
-import javax.swing.*;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
@@ -39,7 +37,7 @@ public class App {
                 userMenu();
             }
         } else {
-            authenticateUser();
+            authenticationMenu();
         }
 
 
@@ -47,20 +45,28 @@ public class App {
 
     private static void userMenu() {
         tw.type("User menu");
+        tw.type("Welcome " + auth.currenUserData.getName() + " " + auth.currenUserData.getLastName());
+        tw.type("This is the normal user panel");
 
+        scanner.next();
+        run();
     }
 
     private static void adminMenu() {
         tw.type("Admin menu");
+        tw.type("Welcome " + auth.currenUserData.getName() + " " + auth.currenUserData.getLastName());
+        tw.type("This is the Admin panel");
 
+        scanner.next();
+        run();
     }
 
-    private static void authenticateUser() {
+    private static void authenticationMenu() {
         String[] mainMenu = {"Login", "Sign Up", "Exit"};
         int userInput = 0;
 
         do {
-            menu.displayMenu(mainMenu, "Select an option to continue");
+            menu.displayMenu(mainMenu, "Welcome to this little library\nFirst you need to log into your account. If you don't have one, create one :)");
             userInput = getIntegerInput();
         } while (userInput < 1 || userInput > mainMenu.length);
 
@@ -97,15 +103,15 @@ public class App {
         tw.type("Signup Menu Menu");
 
         // name
-        tw.type("Enter your name =>");
+        tw.type("Tell us your name =>");
         String name = scanner.next();
 
         // last name
-        tw.type("Enter your last name =>");
+        tw.type("what is your last name ? =>");
         String lastName = scanner.next();
 
         // username
-        tw.type("Enter your username =>");
+        tw.type("Create a username for your self =>");
         String username = scanner.next();
 
         if (App.library.findUser(username) != null) {
@@ -117,7 +123,7 @@ public class App {
         }
 
         // password
-        tw.type("Enter your password =>");
+        tw.type("Create a password for your account =>");
         String password = scanner.next();
 
         // age
@@ -136,7 +142,7 @@ public class App {
 
 
         auth.signup(name, lastName, username, password, age, gender);
-     
+
 
     }
 
