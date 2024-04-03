@@ -13,7 +13,7 @@ public class App {
 
     public App() {
         scanner = new Scanner(System.in);
-        tw = new Typewriter(1);
+        tw = new Typewriter(20);
         db = new DataBase();
         auth = new Authentication();
         library = new Library();
